@@ -59,9 +59,3 @@ desktop.ini
 *.sln
 *.sw?
 
-# ========================
-# Package locks (optional)
-# ========================
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
