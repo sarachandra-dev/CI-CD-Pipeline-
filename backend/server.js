@@ -7,7 +7,7 @@ const limiter = require('./middleware/rateLimiter');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5000' }));
+app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
 app.use(express.json());
 app.use(limiter);
 
