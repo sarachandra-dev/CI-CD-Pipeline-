@@ -61,7 +61,16 @@ export default function RetrievePage() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(result);
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(result);
+    } else {
+      const el = document.createElement('textarea');
+      el.value = result;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
     setCopied(true);
     toast.success('Text copied!');
     setTimeout(() => setCopied(false), 2000);
